@@ -1,0 +1,22 @@
+/vendor/
+
+*.sql
+backup.sql
+
+adminer.php
+
+config/
+.env
+config.local.php
+
+# 5. OS Generated Files (Windows/Mac garbage files)
+.DS_Store
+Thumbs.db
+
+# 6. IDE & Editor Folders
+.vscode/
+.idea/
+
+# 7. Log Files
+*.log
+error_log

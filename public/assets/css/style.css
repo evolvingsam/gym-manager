@@ -1,0 +1,122 @@
+/* 
+ * LASUFit Main Application Stylesheet
+ * Premium UI Overrides for Bootstrap 5
+ */
+
+/* 1. Import a Modern, Professional Font (Inter) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f4f7f6; /* A slightly cooler, premium light gray */
+    color: #2b3440; /* Softer than pure black for easier reading */
+}
+
+/* 2. Sleek Gradient Navbar */
+.navbar {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* 3. Floating, Interactive Cards */
+.card {
+    border: none;
+    border-radius: 12px; /* Smoother, rounder edges */
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Make cards lift up slightly when you hover over them */
+a .card:hover, .card.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1.25rem 1.25rem;
+}
+
+/* 4. Modern Button Styling */
+.btn {
+    border-radius: 8px; /* Match the rounded cards */
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 5. Clean Data Tables */
+.table {
+    margin-bottom: 0;
+}
+
+.table > :not(caption) > * > * {
+    padding: 1rem 1.25rem; /* Give table rows more breathing room */
+    vertical-align: middle;
+    border-bottom-color: rgba(0, 0, 0, 0.04);
+}
+
+.table-dark {
+    background-color: #1e293b;
+    color: #f8f9fa;
+}
+
+/* 6. Form Polish */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.6rem 1rem;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+/* --- DARK MODE OVERRIDES --- */
+[data-bs-theme="dark"] body {
+    background-color: #0f172a; /* Deep slate background */
+    color: #e2e8f0; /* Soft white text */
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #1e293b; /* Slightly lighter slate for cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+}
+
+[data-bs-theme="dark"] .card-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] .table {
+    color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .form-control, 
+[data-bs-theme="dark"] .form-select {
+    background-color: #0f172a;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+    background-color: #1e293b;
+    border-color: #0d6efd;
+    color: #fff;
+}
+
+[data-bs-theme="dark"] .list-group-item {
+    background-color: transparent;
+    color: inherit;
+    border-color: rgba(255,255,255,0.05);
+}

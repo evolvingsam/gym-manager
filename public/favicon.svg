@@ -1,0 +1,10 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <!-- Centered perfectly within a 48x48 square -->
+    <g fill="none" fill-rule="evenodd" transform="translate(0, 4)">
+        <rect fill="#0d6efd" x="0" y="10" width="6" height="20" rx="1"/>
+        <rect fill="#0d6efd" x="8" y="5" width="8" height="30" rx="2"/>
+        <rect fill="#adb5bd" x="16" y="17" width="16" height="6"/>
+        <rect fill="#0d6efd" x="32" y="5" width="8" height="30" rx="2"/>
+        <rect fill="#0d6efd" x="42" y="10" width="6" height="20" rx="1"/>
+    </g>
+</svg>
