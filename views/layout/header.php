@@ -37,24 +37,61 @@
             </svg>
         </a>
 
-        <!-- Dynamic User Status & Theme Toggle -->
-        <div class="d-flex align-items-center gap-3">
-            <!-- Theme Toggle Button -->
-            <button id="theme-toggle" class="btn btn-outline-light btn-sm rounded-circle" aria-label="Toggle Theme">
-                <i id="theme-icon" class="bi bi-moon-fill"></i>
-            </button>
+        <!-- Mobile Toggle Button (Hamburger Menu) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <?php if (isset($_SESSION['user_id'])): ?>
-                <span class="text-white d-none d-md-inline border-start border-secondary ps-3">
-                    <?php if ($_SESSION['role'] === 'member'): ?>
-                        Code: <strong><?= htmlspecialchars($_SESSION['username']) ?></strong>
-                    <?php else: ?>
-                        <strong><?= htmlspecialchars($_SESSION['full_name']) ?></strong> (Staff)
-                    <?php endif; ?>
-                </span>
-                <a href="logout.php" class="btn btn-danger btn-sm">Logout</a>
-            <?php endif; ?>
-        </div>
+        <!-- Collapsible Content (Links & User Status) -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            
+            <!-- 🚀 DYNAMIC ROLE-BASED LINKS 🚀 -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2 ms-lg-4 mt-3 mt-lg-0">
+                <?php if (isset($_SESSION['role']) && ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'staff')): ?>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white px-3" href="members.php">
+                            <i class="bi bi-people"></i> Manage Members
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-secondary px-3 text-white" href="financials.php">
+                            <i class="bi bi-wallet2"></i> Financials
+                        </a>
+                    </li>
+                <?php elseif (isset($_SESSION['role']) && $_SESSION['role'] === 'member'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-info text-white px-3" href="my_profile.php">
+                            <i class="bi bi-person"></i> My Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-secondary px-3 text-white" href="book_class.php">
+                            <i class="bi bi-calendar-event"></i> Book Class
+                        </a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+
+            <!-- Dynamic User Status & Theme Toggle -->
+            <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="btn btn-outline-light btn-sm rounded-circle" aria-label="Toggle Theme">
+                    <i id="theme-icon" class="bi bi-moon-fill"></i>
+                </button>
+
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <span class="text-white d-none d-md-inline border-start border-secondary ps-3">
+                        <?php if ($_SESSION['role'] === 'member'): ?>
+                            Code: <strong><?= htmlspecialchars($_SESSION['username']) ?></strong>
+                        <?php else: ?>
+                            <strong><?= htmlspecialchars($_SESSION['full_name']) ?></strong> (Staff)
+                        <?php endif; ?>
+                    </span>
+                    <a href="logout.php" class="btn btn-danger btn-sm">Logout</a>
+                <?php endif; ?>
+            </div>
+
+        </div> <!-- End Collapse -->
         
     </div>
 </nav>

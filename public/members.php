@@ -6,9 +6,14 @@ use App\Services\AuthService;
 use App\Services\MemberService;
 
 Session::start();
-if (!AuthService::isLoggedIn()) {
-    header("Location: login.php");
-    exit;
+if (!isset($_SESSION['role']) || $_SESSION['role'] === 'member') {
+    
+    // Set an error message so they know why they were redirected
+    Session::set('error', 'Unauthorized Access: You do not have permission to view the admin area.');
+    
+    // Redirect them back to their own dashboard or login
+    header("Location: my_profile.php"); 
+    exit(); // CRITICAL: Stop the rest of the page from loading
 }
 
 $memberService = new MemberService();

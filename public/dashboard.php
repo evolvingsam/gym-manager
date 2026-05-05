@@ -7,9 +7,14 @@ use App\Services\DashboardService;
 use App\Services\SubscriptionService;
 
 Session::start();
-if (!AuthService::isLoggedIn()) {
-    header("Location: login.php");
-    exit;
+if (!isset($_SESSION['role']) || $_SESSION['role'] === 'member') {
+    
+    // Set a subtle error message
+    Session::set('error', 'Redirected: That page is for staff only.');
+    
+    // Redirect them to their personal portal
+    header("Location: my_profile.php"); 
+    exit(); // CRITICAL: Stop the dashboard from loading
 }
 
 // Ensure lazy-expiration runs on dashboard load to keep data accurate
